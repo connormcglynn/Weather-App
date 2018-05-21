@@ -1,14 +1,28 @@
 /*global $*/
 $(document).ready(function() {
-    $("div").on("click", function(){
-        $(this).animate({"opacity" : "0.5"})
-    });
+    var allQuotes = $("blockquote");
+    var currentQuote = 0;
+
+    function changeQuote(){
+        $(allQuotes[currentQuote]).fadeOut(400, function(){
+            if (currentQuote == allQuotes.length - 1) {
+                currentQuote = 0;
+            } else {
+                currentQuote++;
+            }
+    
+            $(allQuotes[currentQuote]).fadeIn(400);
+        });
+    }
+
+    var quoteTimer = setInterval(changeQuote, 4000);
+
 });
 
 const loc = document.getElementById("location");
-const temNum = document.getElementById("temperature-num");
-const temScale = document.getElementById("temperature-scale");
-const weatherCon = document.getElementById("weather-condition");
+const tempNum = document.getElementById("temperature-num");
+const tempScale = document.getElementById("temperature-scale");
+const weatherCond = document.getElementById("weather-condition");
 const weatherIcon = document.getElementById("weather-icon");
 
 function getLocation() {
@@ -29,8 +43,9 @@ function getWeather(lat, lon) {
         .then(data => {
             updateDataToUI(data.name, data.weather, data.main.temp);
         })
-        if (err) throw err;
-            console.log(err);
+        .catch(function(err) {
+            console.error(err);
+          });
 };
 
 
@@ -42,7 +57,8 @@ window.onload = function() {
 // Update the data from API to DOM
 function updateDataToUI(location, weather, temp) {
     weatherIcon.innerHTML = `<img src="${weather[0].icon}" />`;
-    weatherCon.innerHTML = weather[0].main;
+    weatherCond.innerHTML = weather[0].main;
     loc.innerHTML = location;
-    temNum.innerHTML = `${temp}`;
+    tempNum.innerHTML = `${temp}`;
   }
+
