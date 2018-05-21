@@ -1,3 +1,16 @@
+/*global $*/
+$(document).ready(function() {
+    $("div").on("click", function(){
+        $(this).animate({"opacity" : "0.5"})
+    });
+});
+
+const loc = document.getElementById("location");
+const temNum = document.getElementById("temperature-num");
+const temScale = document.getElementById("temperature-scale");
+const weatherCon = document.getElementById("weather-condition");
+const weatherIcon = document.getElementById("weather-icon");
+
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
@@ -20,8 +33,16 @@ function getWeather(lat, lon) {
             console.log(err);
 };
 
-// console.log(geolocation);
 
+// Run the function to get user's geolocation
 window.onload = function() {
     getLocation();
   };
+
+// Update the data from API to DOM
+function updateDataToUI(location, weather, temp) {
+    weatherIcon.innerHTML = `<img src="${weather[0].icon}" />`;
+    weatherCon.innerHTML = weather[0].main;
+    loc.innerHTML = location;
+    temNum.innerHTML = `${temp}`;
+  }

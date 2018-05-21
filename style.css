@@ -2,6 +2,12 @@
     padding-top: 50px;
     
 }
+blockquote {
+    display: none;
+}
+blockquote:first-of-type {
+    display: block;
+}
 .jumbotron {
     width: 600px !important;
     margin: auto;
