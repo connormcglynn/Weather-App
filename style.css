@@ -1,5 +1,5 @@
 #wrapper {
-    padding-top: 50px;
+    padding-top: 10px;
     
 }
 blockquote {
@@ -10,6 +10,8 @@ blockquote:first-of-type {
     display: block;
 }
 .jumbotron {
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
     width: 620px !important;
     margin: auto;
     text-align: center;
@@ -17,6 +19,7 @@ blockquote:first-of-type {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    -webkit-backdrop-filter: blur(20px) !important;
 }
 .flip {
     padding-right: 4px;
