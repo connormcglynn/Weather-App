@@ -90,11 +90,46 @@ function updateDataToUI(location, weather, temp) {
     tempNum.innerHTML = `${temp}`;
   };
 
-// Parallax background on mousemove   
-$().mousemove(function(e) {
-    var pageX = e.pageX - ($(window).width() / 2);
-    var pageY = e.pageY - ($(window).height() / 2);
-    var newvalueX = pageX * -1 - 25;
-    var newvalueY = pageY * -1 - 50;
-    $().css("background-position", newvalueX+"px "+newvalueY+"px");
-});
+// Parallax background on mousemove
+
+// $("body").mousemove(function(e) {
+//     parallaxIt(e, ".slide", -100);
+//     parallaxIt(e, "img", -30);
+//   });
+  
+//   function parallaxIt(e, target, movement) {
+//     var $this = $("body");
+//     var relX = e.pageX - $this.offset().left;
+//     var relY = e.pageY - $this.offset().top;
+  
+//     TweenMax.to(target, 1, {
+//       x: (relX - $this.width() / 2) / $this.width() * movement,
+//       y: (relY - $this.height() / 2) / $this.height() * movement
+//     });
+//   }
+
+(function($){
+    $.fn.backgroundMove = function (options) {
+        var defaults = {movementStrength:'50'}
+        var options = $.extend(defaults,options);
+        var $this = $(this);
+        var movementStrength = options.movementStrength;
+        var height = movementStrength / $(window).height();
+        var width = movementStrength / $(window).width();
+        
+        $this.mousemove(function(e){
+        var pageX = e.pageX - ($(window).width() / 2);
+        var pageY = e.pageY - ($(window).height() / 2);
+        var newvalueX = width * pageX * -1 - 25;
+        var newvalueY = height * pageY * -1 - 50;
+                $this.css("background-position", newvalueX+"px     "+newvalueY+"px");
+        });
+
+    }
+})(jQuery);
+$('body').backgroundMove({
+                movementStrength:'50'
+            });
+
+            var scene = document.getElementById('scene');
+            var parallaxInstance = new Parallax(scene);

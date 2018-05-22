@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bro Weather</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Anton|Black+Han+Sans|Holtwood+One+SC" rel="stylesheet">
     <link rel="stylesheet" href="./style.css" type="text/css">
 
 </head>
 <body>
     <div id="wrapper">
-        <div class="jumbo-wrap"></div>
         <div class="jumbotron">
-            <h1 class="display-4">💪WeatherBro<div class="flip">💪</div></h1>
+            <h1 class="display-4">💪WeatherBro<p class="flip">💪</p></h1>
             <p class="lead">A far-out weather app for the totally excellent homies of el mundo.</p>
-            <hr class="my-4">
+            <hr>
             <div class="weather-info">
                 <div id="location" class="info"></div>
                 <div id="temperature" class="info">
@@ -26,6 +26,7 @@
                 <div id="weather-condition" class="info"></div>
                 <div id="weather-icon" class="info"></div>
             </div>
+
             <blockquote>Mostly cloudy in Brohannesberg?</blockquote>
             <blockquote>Tornados in Broklahoma?</blockquote>
             <blockquote>Rainy in Bromania?</blockquote>
@@ -34,43 +35,13 @@
             <p class="lead">
                 <a class="btn btn-info btn-lg" href="#" role="button">Update your bro-ordinates</a>
             </p>
-            </div>
+        </div>
     </div>
     
     
     
     <!-- jQuery, Popper and Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script type="text/javascript">
-        /*global $*/
-            (function($){
-    $.fn.backgroundMove=function(options){
-            var defaults={
-            movementStrength:'50'
-        },
-        options=$.extend(defaults,options);
-
-         var $this = $(this);
-
-           var movementStrength = options.movementStrength;
-            var height = movementStrength / $(window).height();
-            var width = movementStrength / $(window).width();
-            $this.mousemove(function(e){
-                      var pageX = e.pageX - ($(window).width() / 2);
-                      var pageY = e.pageY - ($(window).height() / 2);
-                      var newvalueX = width * pageX * -1 - 25;
-                      var newvalueY = height * pageY * -1 - 50;
-                      $this.css("background-position", newvalueX+"px     "+newvalueY+"px");
-            });
-
-        }
-})(jQuery);
-$('body').backgroundMove({
-                movementStrength:'50'
-            });
-
-
-        </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="./script.js" type="application/javascript"></script>
