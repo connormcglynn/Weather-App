@@ -1,18 +1,21 @@
+body {
+    background-image: url(images/clouds.jpg)
+}
 #wrapper {
     padding-top: 10px;
-    
 }
 h1 {
     font-family: 'Anton';
     color: rgb(255, 206, 45);
     text-shadow:
-   -1px -1px 0 #000,  
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-     1px 1px 0 #000;
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
 }
 blockquote {
-    font-size: 30px;
+    padding-top: 20px;
+    font-size: 36px;
     display: none;
 }
 blockquote:first-of-type {
@@ -36,5 +39,7 @@ blockquote:first-of-type {
     -moz-transform:rotateY(180deg);
     -o-transform:rotateY(180deg);
     -ms-transform:rotateY(180deg);
-    
-  }
+}
+.weather-info {
+    font-size: 24px;
+}
