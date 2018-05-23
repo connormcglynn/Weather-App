@@ -14,7 +14,6 @@ h1 {
         1px 1px 0 #000;
 }
 blockquote {
-    padding-top: 20px;
     font-size: 36px;
     display: none;
 }
@@ -31,6 +30,7 @@ blockquote:first-of-type {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding-bottom: 20px;
 }
 .flip {
     padding-right: 4px;

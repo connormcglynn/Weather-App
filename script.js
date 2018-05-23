@@ -1,6 +1,4 @@
-/*global $*/
-
-// cycle through potential weather quotes
+// cycle through bro weather quotes
 $(document).ready(function() {
     var allQuotes = $("blockquote");
     var currentQuote = 0;
@@ -13,10 +11,9 @@ $(document).ready(function() {
                 currentQuote++;
             }   $(allQuotes[currentQuote]).fadeIn(400);
         });
-    }
+    };
 
     var quoteTimer = setInterval(changeQuote, 4000);
-
 });
 
 // set up variables for JSON population
@@ -40,7 +37,7 @@ function getLocation() {
 // Run the function to get user's geolocation
 window.onload = function() {
     getLocation();
-  };
+};
 
 // Once geolocation is acquired, get weather for that location
 function getWeather(lat, lon) {
@@ -52,7 +49,7 @@ function getWeather(lat, lon) {
         })
         .catch(function(err) {
             console.log(err);
-          });
+        });
 };
 
 // Update the data from API to DOM
@@ -68,26 +65,16 @@ function updateDataToUI(location, weather, temp) {
         var fahrenheit = ((celsius*1.8) + 32);
         var degrees = $("#temperature-num").text();
         if (degrees == celsius) {
-            $("#temperature-num").text(fahrenheit.toFixed(2));
+            $("#temperature-num").text(fahrenheit.toFixed(2)) && $(this).html('Convert to °C');
         } else {
-            return $("#temperature-num").text(celsius.toFixed(2));
+            return $("#temperature-num").text(celsius.toFixed(2)) && $(this).html('Convert to °F');
         }   
     });
-        $(".btn").on('click', function () {
-         var text=$('.btn').text();
-         if(text === "Convert to °F"){
-           $(this).html('Convert to °C');
-         } else {
-           $(this).html('Convert to °F');
-        }
-       });
-       
 };
-    
 
 // Background motion on mousemove
-const backgroundMove = (function ($) {
-    $.fn.backgroundMover = function (options) {
+function backgroundMover() {
+    $.fn.cursorMove = function (options) {
         var defaults = { movementStrength: '50' };
         var options = $.extend(defaults, options);
         var movementStrength = options.movementStrength;
@@ -102,11 +89,11 @@ const backgroundMove = (function ($) {
             $(this).css("background-position", newvalueX + "px " + newvalueY + "px");
         });
     };
-});
+};
 
-backgroundMove($);
-
-$('body').backgroundMover({
-    movementStrength:'50'
+// call the functions
+backgroundMover($);
+$('body').cursorMove({
+    movementStrength:'15'
 });
 
